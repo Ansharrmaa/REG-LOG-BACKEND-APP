@@ -60,7 +60,7 @@ app:
     cookie-secure: ${COOKIE_SECURE:true}
 
   cors:
-    allowed-origin: ${FRONTEND_ORIGIN:http://localhost:5173}
+    allowed-origin: ${FRONTEND_ORIGIN:http://localhost:5173,http://localhost:5174}
 
   mail:
     from: ${MAIL_FROM:noreply@example.com}
@@ -86,7 +86,7 @@ app:
 logging:
   level:
     com.auth.reglog: INFO
-    org.springframework.security: WARN
+    org.springframework.security: DEBUG
     org.hibernate.SQL: WARN
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
