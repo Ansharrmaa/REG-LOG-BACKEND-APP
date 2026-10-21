@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  mail:
+    host: localhost
+    port: 25
+    username: test
+    password: test
+
+app:
+  jwt:
+    secret: dGVzdFNlY3JldEtleUZvclRlc3RpbmdQdXJwb3Nlc09ubHkxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTA=
+    expiration-ms: 1800000
+    issuer: reg-log-backend-test
+    cookie-name: AUTH_TOKEN
+    cookie-secure: false
+  cors:
+    allowed-origin: http://localhost:5173
+  mail:
+    from: test@test.com
+
+logging:
+  level:
+    com.auth.reglog: DEBUG
+    org.springframework.security: WARN

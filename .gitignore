@@ -1,0 +1,47 @@
+# =============================================================================
+# Registration & Login Backend — .gitignore
+# =============================================================================
+
+# Environment / secrets — NEVER commit
+.env
+*.env.local
+
+# Maven build output
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+*.launch
+.factorypath
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.apt_generated
+.checkstyle
+.sts4-cache
+
+# Logs
+*.log
+logs/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Spring Boot DevTools
+spring-devtools.properties

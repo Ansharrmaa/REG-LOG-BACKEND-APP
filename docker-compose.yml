@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: reglog_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password_change_me}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-reglog_db}
+      MYSQL_USER: ${MYSQL_USER:-reglog_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-reglog_pass_change_me}
+    ports:
+      - "3306:3306"
+    volumes:
+      - reglog_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost",
+             "-u", "${MYSQL_USER:-reglog_user}", "-p${MYSQL_PASSWORD:-reglog_pass_change_me}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  reglog_mysql_data:
